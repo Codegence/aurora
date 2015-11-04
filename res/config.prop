@@ -1,0 +1,9 @@
+overseerFps=10
+serverPort=8080
+logging.loggers.root.channel=c1
+logging.loggers.root.level=debug
+logging.channels.c1.class=FileChannel
+logging.channels.c1.path=aurora.log
+logging.channels.c1.formatter.class=PatternFormatter
+logging.channels.c1.formatter.pattern=[%p]-%d/%m/%y %H:%M:%S:%i-{%s} %t
+greeter=Welcome to Aurora v1.0.0

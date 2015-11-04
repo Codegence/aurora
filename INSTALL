@@ -1,0 +1,32 @@
+How to install Codegence Aurora:
+===============================
+
+Requeriments:
+-------------
+- g++ >= 4.8 ( gcc-c++ package )
+- Poco >= 1.6 - http://pocoproject.org/
+- jsoncpp >= 0.6 - http://jsoncpp.sourceforge.net/
+- boost xpressive >= 1.57 - ( boost-devel package or libboost-dev depending on distribution )
+- cmake >= 3.2
+- make >= 4.0
+
+Compiling:
+----------
+1) get into "bin/main" create the directory if needed:
+    mkdir -p bin/main; cd bin/main
+2) run cmake with debug enabled:
+    cmake -DCMAKE_BUILD_TYPE=Debug ../../prj/main
+3) run make, use multiple threads with the "-j" parameter:
+    make -j8
+
+Running:
+--------
+After compiling in "bin/main".
+1) get into "res/priv":
+    cd res/priv
+2) run the ejecutable
+    ../../bin/main/codegence-aurora
+3) it will run as a daemon. to stop it you need to send the SIGTERM signal or CTRL-C.
+
+
+glhf

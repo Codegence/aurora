@@ -1,4 +1,4 @@
-aurora
-======
+Codegence Aurora
+================
 
-Edge of the system, front to the players.
+Edge of the system, API for the users.
