@@ -1,7 +1,5 @@
 package com.rst.oauth2.google.api;
 
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.PrimaryKey;
 import com.amazonaws.services.dynamodbv2.document.Table;
@@ -11,6 +9,7 @@ import com.rst.oauth2.google.security.GoogleProfile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.stereotype.Component;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,10 +32,10 @@ public class UserResource {
     private static ObjectMapper OM = new ObjectMapper();
     @Autowired
     private OAuth2RestOperations oauth2RestTemplate;
-    private DynamoDB dynamoDB = new DynamoDB(new AmazonDynamoDBClient(new BasicAWSCredentials("AKIAIZ4A5YCDSDZQOROA",
-            "a/O34mbxjGQ+dDAiWpOX99WqyK21OPo8+9JSrsh5")));
-    private SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-    private String playersTable = "cgPlayers";
+    @Autowired
+    private DynamoDB dynamoDB;
+    @Value("${playersTable}")
+    private String playersTable;
 
     @RequestMapping(method = RequestMethod.GET)
     public
