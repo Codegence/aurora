@@ -1,4 +1,7 @@
-bin/
 .idea
-*.user
-*.log
+*.iml
+.gradle
+build
+classes
+*.patch
+target
