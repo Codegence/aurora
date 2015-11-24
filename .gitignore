@@ -5,3 +5,5 @@ build
 classes
 *.patch
 target
+application.properties
+
