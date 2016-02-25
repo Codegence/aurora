@@ -1,8 +1,5 @@
 # Codegence - Aurora
 
----
-
 Player services for the Codegence project.
-Crear archivo credential.properties en resources con las siguientes keys:
-_amazon.credential.accessKey=xxxx(remplazar)
-_amazon.credential.secretKey=yyyy(remplazar)
+Pasar las credenciales a la jvm con la opcion -D las siguientes variables:
+GOOGLE_CLIENT_ID; GOOGLE_CLIENT_SECRET; AMAZON_DYNAMODB_ACCESSKEY; AMAZON_DYNAMODB_SECRETKEY

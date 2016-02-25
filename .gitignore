@@ -6,3 +6,5 @@ classes
 *.patch
 target
 *.directory
+/gradlew
+/gradlew.bat
