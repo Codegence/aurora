@@ -31,9 +31,9 @@ public class Player {
         return nickName;
     }
 
-
     @DynamoDBAttribute
     public String getGoogleID() {
         return googleID;
     }
+
 }

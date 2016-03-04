@@ -5,7 +5,7 @@ google:
       accessTokenUri: https://www.googleapis.com/oauth2/v3/token
       userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
       clientAuthenticationScheme: query
-      scope: profile email
+      scope: email profile
   resource:
       userInfoUri: https://www.googleapis.com/plus/v1/people/me
       preferTokenInfo: false
@@ -23,7 +23,8 @@ spring:
 
 
 
-#dynamodb
-amazon.dynamodb.endpoint: https://dynamodb.us-east-1.amazonaws.com
-amazon.dynamodb.accessKey: ${AMAZON_DYNAMODB_ACCESSKEY}
-amazon.dynamodb.secretKey: ${AMAZON_DYNAMODB_SECRETKEY}
+#AWS
+
+amazon.accessKey: ${AMAZON_ACCESSKEY}
+amazon.secretKey: ${AMAZON_SECRETKEY}
+amazon.sqs.name: cg-sector-genesis
