@@ -34,7 +34,6 @@ public class AWSConfig {
     public AmazonDynamoDB amazonDynamoDB() {
         AmazonDynamoDB amazonDynamoDB = new AmazonDynamoDBClient(amazonAWSCredentials());
         amazonDynamoDB.setRegion(region);
-//        amazonDynamoDB.setEndpoint(amazonDynamoDBEndpoint);
         return amazonDynamoDB;
     }
 

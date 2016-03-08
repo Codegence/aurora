@@ -19,7 +19,7 @@ public class ServerService {
         return serverRepository.findAllByPlayerID(playerID, page);
     }
 
-    public void saveServer(Server newServer, ServerInDTO dto) {
+    public void saveServer(Server newServer, Server dto) {
         BeanUtils.copyProperties(dto, newServer);
         serverRepository.save(newServer);
     }

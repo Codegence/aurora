@@ -8,19 +8,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 /**
  * Created by lmorganti on 19/02/16.
  */
 @DynamoDBTable(tableName = "cgServers")
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Server {
     private String serverID;
     private String playerID;
+    @Setter
+    @NotEmpty
     private String nickName;
+    @Setter
+    @NotEmpty
     private String url;
 
     @DynamoDBHashKey
@@ -43,5 +47,15 @@ public class Server {
     @DynamoDBAttribute
     public String getUrl() {
         return url;
+    }
+
+    @JsonIgnore
+    public void setServerID(String serverID) {
+        this.serverID = serverID;
+    }
+
+    @JsonIgnore
+    public void setPlayerID(String playerID) {
+        this.playerID = playerID;
     }
 }

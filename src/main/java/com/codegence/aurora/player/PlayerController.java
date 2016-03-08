@@ -20,12 +20,15 @@ import javax.validation.Valid;
 public class PlayerController {
 
     @Autowired
-    PlayerService playerService;
+    private PlayerService playerService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public void registerPlayer(OAuth2Authentication user, @RequestBody @Valid PlayerInDTO dto) {
+    public void registerPlayer(OAuth2Authentication user, @RequestBody @Valid Player dto) {
         Player player = playerService.findByGoogleID(user.getPrincipal().toString());
-        if (player == null) playerService.save(new Player(), dto);
+        if (player == null){
+            dto.setGoogleID(user.getPrincipal().toString());
+            playerService.savePlayer(new Player(), dto);
+        }
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -36,9 +39,9 @@ public class PlayerController {
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public void updatePlayer(OAuth2Authentication user, @RequestBody @Valid PlayerInDTO dto) {
+    public void updatePlayer(OAuth2Authentication user, @RequestBody @Valid Player dto) {
         Player player = playerService.findByGoogleID(user.getPrincipal().toString());
         if (player == null) new StatusCodeException(HttpStatus.NOT_FOUND);
-        playerService.save(player, dto);
+        playerService.savePlayer(player, dto);
     }
 }

@@ -25,6 +25,6 @@ spring:
 
 #AWS
 
-amazon.accessKey: ${AMAZON_ACCESSKEY}
-amazon.secretKey: ${AMAZON_SECRETKEY}
+amazon.accessKey: ${AMAZON_ACCESS_KEY}
+amazon.secretKey: ${AMAZON_SECRET_KEY}
 amazon.sqs.name: cg-sector-genesis

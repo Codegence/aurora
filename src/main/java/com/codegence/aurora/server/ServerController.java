@@ -20,14 +20,15 @@ import javax.validation.Valid;
 @RequestMapping(value = "api/server")
 public class ServerController {
     @Autowired
-    ServerService serverService;
+    private ServerService serverService;
     @Autowired
-    PlayerService playerService;
+    private PlayerService playerService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public void addServer(OAuth2Authentication user, @RequestBody @Valid ServerInDTO dto) {
+    public void addServer(OAuth2Authentication user, @RequestBody @Valid Server dto) {
         Player player = playerService.findByGoogleID(user.getPrincipal().toString());
         if (player == null) throw new StatusCodeException(HttpStatus.CONFLICT);
+        dto.setPlayerID(user.getPrincipal().toString());
         serverService.saveServer(new Server(), dto);
     }
 

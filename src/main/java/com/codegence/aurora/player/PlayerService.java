@@ -1,6 +1,5 @@
 package com.codegence.aurora.player;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Service;
 public class PlayerService {
     @Autowired
     private PlayerRepository playerRepository;
-    @Autowired
-    DynamoDBMapper dynamoDBMapper;
 
     public Player findByGoogleID(String googleID) {
         Player player;
@@ -37,8 +34,8 @@ public class PlayerService {
         return player;
     }
 
-    public void save(Player player, PlayerInDTO dto) {
-        BeanUtils.copyProperties(dto,player);
+    public void savePlayer(Player player, Player dto) {
+        BeanUtils.copyProperties(dto, player);
         playerRepository.save(player);
     }
 

@@ -40,8 +40,8 @@ bootRun {
         systemProperties = [
                 GOOGLE_CLIENT_ID         : System.getProperty('GOOGLE_CLIENT_ID'),
                 GOOGLE_CLIENT_SECRET     : System.getProperty('GOOGLE_CLIENT_SECRET'),
-                AMAZON_ACCESSKEY: System.getProperty('AMAZON_ACCESSKEY'),
-                AMAZON_SECRETKEY: System.getProperty('AMAZON_SECRETKEY')
+                AMAZON_ACCESS_KEY: System.getProperty('AMAZON_ACCESS_KEY'),
+                AMAZON_SECRET_KEY: System.getProperty('AMAZON_SECRET_KEY')
         ]
     }
 }
