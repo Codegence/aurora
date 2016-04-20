@@ -19,6 +19,8 @@ public class Faction {
     private String url;
     @NotEmpty
     private String name;
+    private boolean isWinner;
+    private Long score;
 
     @DynamoDBAttribute
     public String getServerID() {
@@ -33,5 +35,31 @@ public class Faction {
     @DynamoDBAttribute
     public String getName() {
         return name;
+    }
+
+    @DynamoDBAttribute
+    public boolean getIsWinner() {
+        return isWinner;
+    }
+
+    @DynamoDBAttribute
+    public Long getScore() {
+        return score;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Faction faction = (Faction) o;
+
+        return !(name != null ? !name.equalsIgnoreCase(faction.name) : faction.name != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
 }

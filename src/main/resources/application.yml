@@ -27,4 +27,5 @@ spring:
 
 amazon.accessKey: ${AMAZON_ACCESS_KEY}
 amazon.secretKey: ${AMAZON_SECRET_KEY}
-amazon.sqs.name: cg-sector-genesis
+amazon.sqs.name.genesis: cg-sector-genesis
+amazon.sqs.name.apocalipse: cg-sector-apocalipse

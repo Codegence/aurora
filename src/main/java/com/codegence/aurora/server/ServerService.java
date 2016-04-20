@@ -2,7 +2,6 @@ package com.codegence.aurora.server;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -25,12 +24,6 @@ public class ServerService {
     }
 
     public Server getServer(String serverID) {
-        Server server;
-        try {
-            server = serverRepository.findByServerID(serverID);
-        } catch (EmptyResultDataAccessException e) {
-            server = null;
-        }
-        return server;
+        return serverRepository.findOne(serverID);
     }
 }

@@ -1,6 +1,8 @@
 package com.codegence.aurora.game;
 
+import com.codegence.aurora.config.StatusCodeException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,9 @@ public class GameController {
 
     @RequestMapping(method = RequestMethod.POST)
     public void addGame(OAuth2Authentication user, @RequestBody @Valid Game dto) {
+        long cUniqueFaction = dto.getFactions().stream().distinct().count();
+        if (cUniqueFaction != dto.getFactions().size())
+            new StatusCodeException(HttpStatus.BAD_REQUEST);
         gameService.saveGame(new Game(), dto);
 
     }

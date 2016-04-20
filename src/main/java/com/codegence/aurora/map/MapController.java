@@ -25,4 +25,5 @@ public class MapController {
                              @RequestParam(value = "size") Integer size) {
         return mapService.listMap(new PageRequest(index, size));
     }
+
 }
